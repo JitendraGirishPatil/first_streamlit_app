@@ -61,10 +61,6 @@ streamlit.write('The user entered ', fruit_choice)
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-
- 
-
-# write your own comment - what does this do?
 streamlit.dataframe(fruityvice_normalized)
 
 
@@ -74,3 +70,8 @@ my_cur.execute("select * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("The Food Load List contains:")
 streamlit.dataframe(my_data_rows)
+
+# Adding List
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+streamlit.dataframe(fruityvice_normalized)

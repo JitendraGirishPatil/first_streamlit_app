@@ -97,9 +97,9 @@ streamlit.write('Thanks for adding ', add_my_fruit)
 
 #---------------------------------------------CHALLENGE---------------------------------------------
 
+# Allow the end user to add a fruit to the list
 def insert_row_snowflake(new_fruit):
     with my_cnx.cursor() as my_cur:
-        query = "INSERT INTO fruit_load_list VALUES (?)"
-        my_cur.execute(query, (new_fruit,))
-    return "Thanks for adding " + new_fruit
+         my_cur.execute("insert into fruit_load_list values ('" + myfruit +"')")
+         return "Thanks for adding " + new_fruit
 

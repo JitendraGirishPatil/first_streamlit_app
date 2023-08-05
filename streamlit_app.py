@@ -1,6 +1,6 @@
 import streamlit
-# import pandas
-# import requests
+import pandas
+import requests
 import snowflake.connector
 from urllib.error import URLError
 
@@ -85,8 +85,7 @@ def insert_row_snowflake(new_fruit):
          my_cur.execute("insert into fruit_load_list values('"+ new_fruit +"')")
          return "Thanks for adding" + new_fruit
 
-
-streamlit.stop()
+ 
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
 if streamlit.button('Add a Fruit to the List'):
@@ -94,7 +93,4 @@ if streamlit.button('Add a Fruit to the List'):
     back_from_function = insert_row_snowflake(add_my_fruit)
     streamlit.text(back_from_function)
 
-streamlit.write('Thanks for adding :', add_my_fruit)
-
-#This will not work correctly, but just go with it for now
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+streamlit.write('Thanks for adding ', add_my_fruit)
